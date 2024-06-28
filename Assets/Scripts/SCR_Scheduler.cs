@@ -23,6 +23,7 @@ public class SCR_Scheduler : MonoBehaviour{
     }
 
     void Update(){
+        if (waitingCommands.Count == 0) return; //if there's no commands to send, don't bother
         timer -= Time.deltaTime;
         if(timer <= 0f){
             timer += stepTime;
@@ -46,6 +47,9 @@ public class SCR_Scheduler : MonoBehaviour{
     }
     
     public void ReceiveCommand(Command comm,GameObject arrow){
+        if (waitingCommands.Count == 0){
+            timer = stepTime * 2;
+        }
         waitingCommands.Add(comm);
         pendingArrows.Add(arrow);
     }
