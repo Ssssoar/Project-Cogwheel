@@ -7,27 +7,34 @@ public class SCR_RowIndex : MonoBehaviour{
 
 
     [HideInInspector]
-    public GameObject[] slots;
+    public SCR_WorldPositioner[] slots;
     // Start is called before the first frame update
-    void Start(){
-        slots = new GameObject[objects.Length];
+    void Awake(){
+        slots = new SCR_WorldPositioner[objects.Length];
         CreateObjects();
     }
 
     void CreateObjects(){
         int i = 0;
-        Vector2 position;
         foreach (GameObject obj in objects){
-            position = new Vector2((float)i,transform.position.y);
-            slots[i] = Instantiate(obj,(Vector3)position,Quaternion.identity,transform);
+            slots[i] = Instantiate(obj,Vector3.zero,Quaternion.identity,transform).GetComponent<SCR_WorldPositioner>();
+            i++;
+        }
+    }
+
+    public void PositionObjects(){
+        int i = 0;
+        foreach (SCR_WorldPositioner positioner in slots){
+            Vector2 position = new Vector2((float)i , transform.position.y);
+            positioner.desiredWorldPos = position;
             i++;
         }
     }
 
     [ContextMenu("Print every element to Log")]
     void DebugAll(){
-        foreach (GameObject obj in slots){
-            Debug.Log(obj);
+        foreach (SCR_WorldPositioner obj in slots){
+            Debug.Log(obj.gameObject);
         }
     }
 }

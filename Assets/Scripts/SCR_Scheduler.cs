@@ -55,6 +55,6 @@ public class SCR_Scheduler : MonoBehaviour{
     }
 
     void ExecuteCommand(Command comm){
-        //Debug.Log(comm);
+        SCR_PlayerMovement.instance.TryMovement(comm);
     }
 }

@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SCR_LevelGenerator : MonoBehaviour{
+    public static SCR_LevelGenerator instance;
+    private void Awake(){
+        if (SCR_LevelGenerator.instance != null) Destroy(SCR_LevelGenerator.instance.gameObject);
+        instance = this;
+    }
+
     [Header("References")]
     public SCR_RowIndex[] rows;
     public SCR_CheckerPattern checkerScript;
@@ -26,6 +32,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
         int yPos = 0;
         foreach(SCR_RowIndex row in rows){
             row.transform.position = new Vector3(0f,(float)yPos,0f);
+            row.PositionObjects();
             yPos++;
         }
     }
@@ -39,15 +46,33 @@ public class SCR_LevelGenerator : MonoBehaviour{
                 maxX = row.objects.Length;
         }
         size.x = maxX;
-        Debug.Log(size);
         return size;
     }
 
-    public GameObject GetElementAtCoord(Vector2Int coord){
+    public SCR_WorldPositioner GetElementAtCoord(Vector2Int coord){
         if (coord.x < 0) coord.x = 0;
         if (coord.y < 0) coord.y = 0;
         if (coord.x > maxSize.x-1) coord.x = maxSize.x-1;
         if (coord.y > maxSize.y-1) coord.y = maxSize.y-1;
         return rows[coord.y].slots[coord.x];
+    }
+
+    public Vector2Int DirectionToVect(Command direction){
+        switch(direction){
+            case(Command.up):    return new Vector2Int( 0, 1);
+            case(Command.down):  return new Vector2Int( 0,-1);
+            case(Command.left):  return new Vector2Int(-1, 0);
+            case(Command.right): return new Vector2Int( 1, 0);
+        }
+        return new Vector2Int(0,0);
+    }
+
+    public void SwitchObjects(Vector2Int pos1, Vector2Int pos2){
+        SCR_WorldPositioner obj1 = GetElementAtCoord(pos1);
+        SCR_WorldPositioner obj2 = GetElementAtCoord(pos2);
+        rows[pos1.y].slots[pos1.x] = obj2;
+        rows[pos2.y].slots[pos2.x] = obj1;
+        obj1.desiredWorldPos = pos2;
+        obj2.desiredWorldPos = pos1;
     }
 }

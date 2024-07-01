@@ -14,7 +14,7 @@ public class SCR_CheckerPattern : MonoBehaviour{
         }
     }
 
-    void DarkenTile(GameObject obj){
+    void DarkenTile(SCR_WorldPositioner obj){
         SpriteRenderer sr = obj.GetComponent<SpriteRenderer>();
         if (sr == null) return;
         Color newColor = sr.color * darkenFactor;
