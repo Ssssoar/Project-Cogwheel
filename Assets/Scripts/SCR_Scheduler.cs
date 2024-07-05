@@ -57,4 +57,13 @@ public class SCR_Scheduler : MonoBehaviour{
     void ExecuteCommand(Command comm){
         SCR_PlayerMovement.instance.TryMovement(comm);
     }
+
+    [ContextMenu ("Remove All Commands")]
+    public void CancelAllCommands(){
+        waitingCommands.Clear();
+        while(pendingArrows.Count > 0){
+            Destroy(pendingArrows[0]);
+            pendingArrows.RemoveAt(0);
+        }
+    }
 }

@@ -10,8 +10,10 @@ public class SCR_LevelGenerator : MonoBehaviour{
     }
 
     [Header("References")]
+    public GameObject nextLevel;
     public SCR_RowIndex[] rows;
-    public SCR_CheckerPattern checkerScript;
+    public SCR_ColorSystem colorScript;
+    public GameObject emptyPrefab;
 
     [HideInInspector]
     public Vector2Int maxSize;
@@ -19,7 +21,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
     void Start(){
         maxSize = CalculateSize();
         PositionRows();
-        checkerScript.Darken(rows);
+        colorScript.SwitchAllColors(rows);
         Vector2 middlePos = (Vector2)maxSize;
         middlePos.x -= 1f;
         middlePos.y -= 1f;
@@ -74,5 +76,19 @@ public class SCR_LevelGenerator : MonoBehaviour{
         rows[pos2.y].slots[pos2.x] = obj1;
         obj1.desiredWorldPos = pos2;
         obj2.desiredWorldPos = pos1;
+        colorScript.SwitchColorSingle(pos1);
+        colorScript.SwitchColorSingle(pos2);
+    }
+
+    public void ReplaceObject(Vector2Int pos, GameObject prefab){
+        if (prefab == null) prefab = emptyPrefab;
+        Destroy(rows[pos.y].slots[pos.x].gameObject);
+        rows[pos.y].RuntimeCreate(pos, prefab);
+        colorScript.SwitchColorSingle(pos);
+    }
+
+    [ContextMenu("TriggerNextLevel")]
+    public void LoadLevel(){
+        Instantiate(nextLevel,Vector3.zero,Quaternion.identity,transform.parent);
     }
 }

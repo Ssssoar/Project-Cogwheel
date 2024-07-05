@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class SCR_MouseInputReceiver : MonoBehaviour{
+    public static SCR_MouseInputReceiver instance;
+    private void Awake(){
+        if (SCR_MouseInputReceiver.instance != null) Destroy(gameObject);
+        else instance = this;
+    }
+
     [Header("References")]
     public Animator buttonAnim1;
     public Animator buttonAnim2;
@@ -20,12 +26,14 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
     public KeyCode trigger2;
     public List<Command> commandList1;
     public List<Command> commandList2;
+    public bool canMove;
 
     void Start(){
         UpdateCommands(null,null);
     }
 
     void Update(){
+        if (!canMove) return;
         if(Input.GetKeyDown(trigger1)){
             SendCommands(commandList1,arrowContainer1);
             SendAnimations(buttonAnim1,true);
