@@ -15,4 +15,8 @@ public class SCR_WorldPositioner : MonoBehaviour{
     public Vector2Int IntDesiredWorldPos(){
         return new Vector2Int((int)desiredWorldPos.x,(int)desiredWorldPos.y);
     }
+
+    public void SetDesiredWorldPosFromInt(Vector2Int intPos){
+        desiredWorldPos = new Vector2((float)intPos.x , (float)intPos.y);
+    }
 }

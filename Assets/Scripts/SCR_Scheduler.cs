@@ -9,6 +9,9 @@ public class SCR_Scheduler : MonoBehaviour{
         else instance = this;
     }
 
+    [Header("Prefabs")]
+    public GameObject smokePuffUI;
+
     [Header("Variables")]
     public Transform[] queuePositions;
     public float stepTime = 0.5f;
@@ -28,6 +31,7 @@ public class SCR_Scheduler : MonoBehaviour{
         if(timer <= 0f){
             timer += stepTime;
             if (waitingCommands.Count > 0){
+                Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);
                 ExecuteCommand(waitingCommands[0]);
                 waitingCommands.RemoveAt(0);
                 GameObject toDestroy = pendingArrows[0];
@@ -62,6 +66,7 @@ public class SCR_Scheduler : MonoBehaviour{
     public void CancelAllCommands(){
         waitingCommands.Clear();
         while(pendingArrows.Count > 0){
+            Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);
             Destroy(pendingArrows[0]);
             pendingArrows.RemoveAt(0);
         }

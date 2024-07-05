@@ -7,14 +7,22 @@ public class SCR_RandomSprite : MonoBehaviour{
     public Sprite[] spriteList;
     public WiggleType wiggleType;
     int index;
+    bool added;
 
     void OnEnable(){
         img.sprite = spriteList[0];
         index = 0;
+        if (SCR_WiggleTimer.instance == null) return;
         SCR_WiggleTimer.instance.NewWiggle(wiggleType,this);
+        added = true;
+    }
+    
+    void Update(){
+        if (added) return;
+        SCR_WiggleTimer.instance.NewWiggle(wiggleType,this);
+        added = true;
     }
 
-    // Update is called once per frame
     public void Wiggle(){
         int previous = index;
         index = GetRandIndex(spriteList.Length,index);

@@ -76,7 +76,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 11
   m_Sprite: {fileID: -902259804, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   m_Color: {r: 0.87169814, g: 0.6547819, b: 0.13651115, a: 1}
   m_FlipX: 0
@@ -116,6 +116,7 @@ MonoBehaviour:
   coordScript: {fileID: 824049928783535618}
   colorScript: {fileID: -9125880092574216875}
   replaceCoord: {x: 0, y: 0}
+  timeToDisappear: 0.8
   indicatorPrefab: {fileID: 3436384941276179725, guid: 926a0268ed732bb46b6723f7dc956499, type: 3}
   replaceWith: {fileID: 0}
   deleteObj: {fileID: 0}
@@ -137,7 +138,7 @@ MonoBehaviour:
   - {fileID: 1723983934, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: 619182128, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: -1296112309, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  switchTime: 0.1
+  wiggleType: 0
 --- !u!114 &-9125880092574216875
 MonoBehaviour:
   m_ObjectHideFlags: 0

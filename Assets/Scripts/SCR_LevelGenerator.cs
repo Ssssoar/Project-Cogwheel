@@ -10,10 +10,13 @@ public class SCR_LevelGenerator : MonoBehaviour{
     }
 
     [Header("References")]
-    public GameObject nextLevel;
     public SCR_RowIndex[] rows;
     public SCR_ColorSystem colorScript;
+
+    [Header("Prefabs")]
     public GameObject emptyPrefab;
+    public GameObject puffPrefab;
+    public GameObject nextLevel;
 
     [HideInInspector]
     public Vector2Int maxSize;
@@ -69,7 +72,17 @@ public class SCR_LevelGenerator : MonoBehaviour{
         return new Vector2Int(0,0);
     }
 
-    public void SwitchObjects(Vector2Int pos1, Vector2Int pos2){
+    public Vector2 DirectionToFloatVect(Command direction){
+        switch(direction){
+            case(Command.up):    return new Vector2( 0f, 1f);
+            case(Command.down):  return new Vector2( 0f,-1f);
+            case(Command.left):  return new Vector2(-1f, 0f);
+            case(Command.right): return new Vector2( 1f, 0f);
+        }
+        return new Vector2(0f,0f);
+    }
+
+    public void SwitchObjects(Vector2Int pos1, Vector2Int pos2){ //switch the position of two objects
         SCR_WorldPositioner obj1 = GetElementAtCoord(pos1);
         SCR_WorldPositioner obj2 = GetElementAtCoord(pos2);
         rows[pos1.y].slots[pos1.x] = obj2;
@@ -80,9 +93,18 @@ public class SCR_LevelGenerator : MonoBehaviour{
         colorScript.SwitchColorSingle(pos2);
     }
 
-    public void ReplaceObject(Vector2Int pos, GameObject prefab){
+    public void ReplaceObject(Vector2Int pos, GameObject prefab, Color color){ //unload the object in a position and load a different one
         if (prefab == null) prefab = emptyPrefab;
         Destroy(rows[pos.y].slots[pos.x].gameObject);
+        rows[pos.y].RuntimeCreate(pos, prefab);
+        colorScript.SwitchColorSingle(pos);
+        Vector2 worldPos = new Vector2((float)pos.x , (float)pos.y);
+        GameObject puff = Instantiate(puffPrefab,worldPos,Quaternion.identity,transform);
+        puff.GetComponent<SCR_SendFourCorners>().colorSetter.color = (color != null)? color : Color.white;
+    }
+
+    public void AddObject(Vector2Int pos, GameObject prefab){ //adds an object to a position, not unloading the one previously there, but taking it's reference off of the grid.
+        if (prefab == null) prefab = emptyPrefab;
         rows[pos.y].RuntimeCreate(pos, prefab);
         colorScript.SwitchColorSingle(pos);
     }
