@@ -18,8 +18,29 @@ public class SCR_LevelGenerator : MonoBehaviour{
     public GameObject puffPrefab;
     public GameObject nextLevel;
 
+    [Header("Variables")]
+    public string levelName;
+    
+
     [HideInInspector]
     public Vector2Int maxSize;
+    bool nameUpdated = false;
+    bool recordFetched = false;
+
+    void Update(){
+        if (!nameUpdated){
+            if (SCR_Scheduler.instance != null) {
+                SCR_Scheduler.instance.UpdateLevelName(levelName);
+                nameUpdated = true;
+            }
+        }
+        if(!recordFetched){
+            if (SCR_RecordTracker.instance != null){
+                SCR_RecordTracker.instance.NewLevel(levelName);
+                recordFetched = true;
+            }
+        }
+    }
 
     void Start(){
         maxSize = CalculateSize();

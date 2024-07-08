@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class SCR_Scheduler : MonoBehaviour{
     public static SCR_Scheduler instance;
@@ -8,6 +9,9 @@ public class SCR_Scheduler : MonoBehaviour{
         if (SCR_Scheduler.instance != null) Destroy(gameObject);
         else instance = this;
     }
+
+    [Header("References")]
+    public TMP_Text levelName;
 
     [Header("Prefabs")]
     public GameObject smokePuffUI;
@@ -70,5 +74,9 @@ public class SCR_Scheduler : MonoBehaviour{
             Destroy(pendingArrows[0]);
             pendingArrows.RemoveAt(0);
         }
+    }
+
+    public void UpdateLevelName(string newName){
+        levelName.text = newName;
     }
 }

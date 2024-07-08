@@ -14,6 +14,7 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
     public Animator buttonAnim2;
     public GameObject arrowContainer1;
     public GameObject arrowContainer2;
+    public SCR_ClickCounter clickCounter;
 
     [Header("Prefabs")]
     public GameObject upArrow;
@@ -51,6 +52,7 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
     }
 
     void SendCommands(List<Command> commandList, GameObject arrowContainer){
+        clickCounter.Count();
         int i = 0;
         foreach (Command comm in commandList){
             GameObject toClone = arrowContainer.transform.GetChild(i).gameObject;
@@ -106,5 +108,9 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
             }
             Instantiate(toInstantiate,container.transform);
         }
+    }
+
+    public void InputState(bool state){
+        canMove = state;
     }
 }

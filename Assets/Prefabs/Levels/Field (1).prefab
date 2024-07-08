@@ -103,7 +103,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d1ce1f4085f4185409fa5281b2854c4e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nextLevel: {fileID: 0}
   rows:
   - {fileID: 5048502713165671704}
   - {fileID: 6720253353707774863}
@@ -114,6 +113,9 @@ MonoBehaviour:
   - {fileID: 127392274794076416}
   colorScript: {fileID: 6536882410718122194}
   emptyPrefab: {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
+  puffPrefab: {fileID: 791016010028657649, guid: d959134b24e5d4d49a1c1874ff9f083e, type: 3}
+  nextLevel: {fileID: 4690468120150831288, guid: 37a88cada62fb4a4aa7cf6815b88cadc, type: 3}
+  levelName: 0-1 TEST LEVEL THE SECOND
   maxSize: {x: 0, y: 0}
 --- !u!114 &6536882410718122194
 MonoBehaviour:

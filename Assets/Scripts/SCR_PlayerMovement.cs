@@ -47,17 +47,18 @@ public class SCR_PlayerMovement : MonoBehaviour{
         SCR_WorldPositioner bumped = SCR_LevelGenerator.instance.GetElementAtCoord(gridPos);
         switch(bumped.tag){
             case("Wall"): //it stops movement. It bumps against the wall
-                Vector2 bumpPos = positionScript.desiredWorldPos + (SCR_LevelGenerator.instance.DirectionToFloatVect(movement)*0.35f);
-                actualPos = positionScript.desiredWorldPos;
-                positionScript.desiredWorldPos = bumpPos;
-                bumpTimer = bumpTime;
+                if (bumpTimer <= 0){
+                    Vector2 bumpPos = positionScript.desiredWorldPos + (SCR_LevelGenerator.instance.DirectionToFloatVect(movement)*0.35f);
+                    actualPos = positionScript.desiredWorldPos;
+                    positionScript.desiredWorldPos = bumpPos;
+                    bumpTimer = bumpTime;
+                }
             break;
             case("Space"): //allow movement
                 SCR_LevelGenerator.instance.SwitchObjects(positionScript.IntDesiredWorldPos() , gridPos);
             break;
             case("End"): //moves, but steps on top
                 positionScript.desiredWorldPos = new Vector2((float)gridPos.x, (float)gridPos.y);
-                SCR_MouseInputReceiver.instance.canMove = false;
                 SCR_SequenceReferenceHolder.instance.nextLevelSequence.Play();
             break;
             case("Collectable"):

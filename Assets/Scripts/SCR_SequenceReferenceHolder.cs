@@ -10,4 +10,13 @@ public class SCR_SequenceReferenceHolder : MonoBehaviour{
         instance = this;
     }
     public PlayableDirector nextLevelSequence;
+
+    public void CheckRecord(){
+        Debug.Log(SCR_RecordTracker.instance.SetRecord(SCR_ClickCounter.instance.count));
+    }
+
+    public void TriggerLoad(){
+        SCR_ClickCounter.instance.ResetCount();
+        SCR_LevelGenerator.instance.LoadLevel();
+    }
 }
