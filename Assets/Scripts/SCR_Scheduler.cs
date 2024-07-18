@@ -20,6 +20,7 @@ public class SCR_Scheduler : MonoBehaviour{
     public Transform[] queuePositions;
     public float lerpStrength = 20f;
     public bool blocked;
+    public int rotations = 0;
 
     int waitBeats = 2;
     List<Command> waitingCommands = new List<Command>();
@@ -37,6 +38,33 @@ public class SCR_Scheduler : MonoBehaviour{
         }
     }
 
+    public void AddRotations(int toAdd){
+        rotations += toAdd;
+        if (rotations < 0)
+            rotations += 4;
+        if (rotations >= 4)
+            rotations -= 4;
+    }
+
+    public Command DoRotations(Command command){
+        for(int i = 0; i < rotations; i++){
+            command = RotateCommand(command);
+        }
+        return command;
+    }
+
+    public Command RotateCommand(Command preRotation){ //ROTATES CLOCKWISE
+        if (preRotation == Command.up)
+            return Command.right;
+        if (preRotation == Command.right)
+            return Command.down;
+        if (preRotation == Command.down)
+            return Command.left;
+        if (preRotation == Command.left)
+            return Command.up;
+        return preRotation;
+    }
+
     public void Beat(){
         if (blocked) return;
         if (waitingCommands.Count > 0){
@@ -45,7 +73,7 @@ public class SCR_Scheduler : MonoBehaviour{
                 return;
             }
             Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);
-            ExecuteCommand(waitingCommands[0]);
+            ExecuteCommand(DoRotations(waitingCommands[0]));
             waitingCommands.RemoveAt(0);
             GameObject toDestroy = pendingArrows[0];
             pendingArrows.RemoveAt(0);

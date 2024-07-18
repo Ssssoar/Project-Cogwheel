@@ -90,11 +90,11 @@ public class SCR_LevelGenerator : MonoBehaviour{
     }
 
     public void Rotate(){
-        float rotNum = (clockWiseTurn)? 90 : -90;
+        float rotNum = (clockWiseTurn)? 90f : -90f;
         SCR_CameraFocuser.instance.zRot += rotNum;
+        SCR_Scheduler.instance.AddRotations((int)(-rotNum/90f));
         for(int i = 0; i < rows.Length; i++){
             for(int j = 0; j < rows[i].slots.Length; j++){
-                Debug.Log(rows[i].slots[j].tag);
                 rows[i].slots[j].SetZRot(rotNum);
             }
         }

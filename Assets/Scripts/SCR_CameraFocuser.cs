@@ -28,10 +28,6 @@ public class SCR_CameraFocuser : MonoBehaviour{
             );
 
         actualzRot = Mathf.Lerp(actualzRot , zRot , 5f * Time.deltaTime);
-        if (actualzRot < 0)
-            actualzRot += 360;
-        else if (actualzRot >= 360)
-            actualzRot -= 360;
         transform.eulerAngles = new Vector3( 0f, 0f, actualzRot);
         }
     }
@@ -45,6 +41,8 @@ public class SCR_CameraFocuser : MonoBehaviour{
     public void SetFocus(GameObject newFocus){
         DestroyFocus();
         focus = newFocus.transform;
+        zRot = 0f;
+        actualzRot = 0f;
     }
 
     void DestroyFocus(){

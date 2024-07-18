@@ -31,9 +31,5 @@ public class SCR_WorldPositioner : MonoBehaviour{
 
     public void SetZRot(float offset){
         desiredzRot += offset;
-        if (desiredzRot >= 360)
-            desiredzRot -= 360;
-        else if(desiredzRot < 0)
-            desiredzRot += 360;
     }
 }
