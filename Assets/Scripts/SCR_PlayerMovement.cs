@@ -68,7 +68,6 @@ public class SCR_PlayerMovement : MonoBehaviour{
 
     public void TryMovement(Command movement){
         startPos = positionScript.IntDesiredWorldPos();
-        facingScript.ChangeFacing(movement);
         Vector2Int gridPos = startPos;
         gridPos += SCR_LevelGenerator.instance.DirectionToVect(movement);
         MoveInto(gridPos , positionScript.IntDesiredWorldPos());

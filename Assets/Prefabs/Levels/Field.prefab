@@ -115,6 +115,7 @@ MonoBehaviour:
   levelName: 0-0 Test Level
   leftCommands: 0100000000000000
   rightCommands: 0200000003000000
+  clockWiseTurn: 0
   maxSize: {x: 0, y: 0}
   buttonList: []
   buttonPos: []
@@ -130,8 +131,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b1bacda16de1841a8dd9c1a6382648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {r: 0.690566, g: 0.43689469, b: 0.4104307, a: 1}
-  element: {r: 0.96981126, g: 0.18846112, b: 0.12991813, a: 1}
+  background: {r: 0.6415094, g: 0.5002256, b: 0.48718402, a: 1}
+  element: {r: 0.7264151, g: 0.3281261, b: 0.29810432, a: 1}
   highlight: {r: 0.97946846, g: 1, b: 0.19433957, a: 1}
   keyColors:
   - {r: 0.4111997, g: 0.7790021, b: 0.78113204, a: 1}

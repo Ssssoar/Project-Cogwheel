@@ -73,6 +73,7 @@ public class SCR_Scheduler : MonoBehaviour{
                 return;
             }
             Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(waitingCommands[0]);
             ExecuteCommand(DoRotations(waitingCommands[0]));
             waitingCommands.RemoveAt(0);
             GameObject toDestroy = pendingArrows[0];
