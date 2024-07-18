@@ -8,6 +8,8 @@ TagManager:
   - Space
   - End
   - Collectable
+  - Corner
+  - Button
   layers:
   - Default
   - TransparentFX

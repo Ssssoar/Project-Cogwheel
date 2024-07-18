@@ -118,3 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 1

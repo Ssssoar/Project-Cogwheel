@@ -16,13 +16,39 @@ public class SCR_PlayerMovement : MonoBehaviour{
     public float bumpTime; //EXTREMELY IMPORTANT THIS MUST BE LESS THAN THE TIME BETWEEN COMMANDS IN THE SCHEDULER
 
     float bumpTimer = -1f;
+    float cornerTimer = -1f;
+    float turnTimer = -1f;
+    float lockTimer = -1f;
     Vector2 actualPos;
+    Vector2 nextPos;
+    Vector2 cornerPos;
+    Vector2Int startPos;
 
     void Update(){
         if (bumpTimer >= 0f){
             bumpTimer -= Time.deltaTime;
             if (bumpTimer < 0f){
-                positionScript.desiredWorldPos = actualPos;
+                SCR_LevelGenerator.instance.SwitchObjects(startPos, actualPos);
+                SCR_Scheduler.instance.blocked = false;
+            }
+        }
+        if (cornerTimer >= 0f){
+            cornerTimer -= Time.deltaTime;
+            if (cornerTimer < 0f){
+                MoveInto(nextPos , cornerPos);
+            }
+        }
+        if(turnTimer >= 0f){
+            turnTimer -= Time.deltaTime;
+            if (turnTimer < 0f){
+                lockTimer = bumpTime * 5;
+                SCR_LevelGenerator.instance.Rotate();
+            }
+        }
+        if(lockTimer >= 0f){
+            lockTimer -= Time.deltaTime;
+            if (lockTimer < 0f){
+                SCR_Scheduler.instance.blocked = false;
             }
         }
         if (!test) return;
@@ -41,21 +67,53 @@ public class SCR_PlayerMovement : MonoBehaviour{
     }
 
     public void TryMovement(Command movement){
+        startPos = positionScript.IntDesiredWorldPos();
         facingScript.ChangeFacing(movement);
-        Vector2Int gridPos = positionScript.IntDesiredWorldPos();
+        Vector2Int gridPos = startPos;
         gridPos += SCR_LevelGenerator.instance.DirectionToVect(movement);
+        MoveInto(gridPos , positionScript.IntDesiredWorldPos());
+    }
+
+    void MoveInto(Vector2 gridPos , Vector2 currentPos){
+        Vector2Int intGridPos = new Vector2Int((int)gridPos.x , (int)gridPos.y);
+        Vector2Int intCurrentPos = new Vector2Int((int)currentPos.x , (int)currentPos.y);
+        MoveInto(intGridPos , intCurrentPos);
+    }
+
+    void MoveInto(Vector2Int gridPos , Vector2Int currentPos){
         SCR_WorldPositioner bumped = SCR_LevelGenerator.instance.GetElementAtCoord(gridPos);
         switch(bumped.tag){
             case("Wall"): //it stops movement. It bumps against the wall
-                if (bumpTimer <= 0){
-                    Vector2 bumpPos = positionScript.desiredWorldPos + (SCR_LevelGenerator.instance.DirectionToFloatVect(movement)*0.35f);
+                { //LMAO SCOPE
+                    SCR_Scheduler.instance.blocked = true;
+                    Vector2 bumpPos = (currentPos + (bumped.desiredWorldPos - currentPos)*0.35f);
                     actualPos = positionScript.desiredWorldPos;
                     positionScript.desiredWorldPos = bumpPos;
                     bumpTimer = bumpTime;
+                    SCR_NotePicker.instance.PlayNote(Pitch.low);
+                }
+            break;
+            case("Corner"): //query the corner for where to move
+                { //LMAO SCOPE
+                    SCR_Scheduler.instance.blocked = true;
+                    Vector2 bumpPos = currentPos + (bumped.desiredWorldPos - currentPos)*0.85f;
+                    nextPos = bumped.GetComponent<SCR_Corner>().ReturnPosition(currentPos);
+                    cornerPos = new Vector2((float)gridPos.x , (float)gridPos.y);
+                    positionScript.desiredWorldPos = bumpPos;
+                    cornerTimer = bumpTime;
+                    SCR_NotePicker.instance.PlayNote(Pitch.low);
                 }
             break;
             case("Space"): //allow movement
-                SCR_LevelGenerator.instance.SwitchObjects(positionScript.IntDesiredWorldPos() , gridPos);
+                if (SCR_LevelGenerator.instance.SeekButton(gridPos)){
+                    SCR_NotePicker.instance.PlayChord();
+                    turnTimer = bumpTime;
+                    SCR_Scheduler.instance.blocked = true;
+                }else{
+                    SCR_NotePicker.instance.PlayNote(Pitch.high);
+                    SCR_Scheduler.instance.blocked = false;
+                }
+                SCR_LevelGenerator.instance.SwitchObjects(startPos , gridPos);
             break;
             case("End"): //moves, but steps on top
                 positionScript.desiredWorldPos = new Vector2((float)gridPos.x, (float)gridPos.y);
@@ -64,7 +122,14 @@ public class SCR_PlayerMovement : MonoBehaviour{
             case("Collectable"):
                 bumped.GetComponent<SCR_WhenCollected>().Execute();
                 SCR_LevelGenerator.instance.AddObject(gridPos, null);
-                SCR_LevelGenerator.instance.SwitchObjects(positionScript.IntDesiredWorldPos() , gridPos);
+                SCR_LevelGenerator.instance.SwitchObjects(startPos , gridPos);
+                SCR_NotePicker.instance.PlayNote(Pitch.high);
+                SCR_NotePicker.instance.PlayNote(Pitch.low);
+                SCR_Scheduler.instance.blocked = false;
+            break;
+            case("Player"):
+                SCR_LevelGenerator.instance.SwitchObjects(startPos, gridPos);
+                SCR_Scheduler.instance.blocked = false;
             break;
         }
     }

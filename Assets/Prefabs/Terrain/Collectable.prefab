@@ -101,6 +101,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
 --- !u!114 &850542665293416522
 MonoBehaviour:
   m_ObjectHideFlags: 0

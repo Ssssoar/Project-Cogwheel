@@ -17,13 +17,18 @@ public class SCR_LevelGenerator : MonoBehaviour{
     public GameObject emptyPrefab;
     public GameObject puffPrefab;
     public GameObject nextLevel;
+    public GameObject rowPrefab;
 
     [Header("Variables")]
     public string levelName;
-    
+    public List<Command> leftCommands;
+    public List<Command> rightCommands;
+    public bool clockWiseTurn;
 
     [HideInInspector]
     public Vector2Int maxSize;
+    public List<SCR_WorldPositioner> buttonList;
+    public List<Vector2Int> buttonPos;
     bool nameUpdated = false;
     bool recordFetched = false;
 
@@ -44,14 +49,55 @@ public class SCR_LevelGenerator : MonoBehaviour{
 
     void Start(){
         maxSize = CalculateSize();
+        GeneratePuffs();
         PositionRows();
         colorScript.SwitchAllColors(rows);
+        ScanButtons();
         Vector2 middlePos = (Vector2)maxSize;
         middlePos.x -= 1f;
         middlePos.y -= 1f;
         middlePos /= 2;
         SCR_CameraFocuser.instance.SetFocus(middlePos);
         SCR_CameraFocuser.instance.SetSize(maxSize);
+        SCR_MouseInputReceiver.instance.UpdateCommands(leftCommands,rightCommands);
+    }
+
+    void ScanButtons(){
+        for(int i = 0; i < rows.Length; i++){
+            for(int j = 0; j < rows[i].slots.Length; j++){
+                if(rows[i].slots[j].tag == "Button"){
+                    buttonList.Add(rows[i].slots[j]);
+                    Vector2Int pos = new Vector2Int(j,i);
+                    buttonPos.Add(pos);
+                    AddObject(pos, null);
+                }
+            }
+        }
+    }
+
+    public bool SeekButton(Vector2Int toCheck){
+        for(int i = 0; i < buttonPos.Count ; i++){
+            Vector2Int coord = buttonPos[i];
+            if (toCheck == coord){
+                if(buttonList[i].transform.localScale.x < 0f)
+                    clockWiseTurn = true;
+                else
+                    clockWiseTurn = false;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public void Rotate(){
+        float rotNum = (clockWiseTurn)? 90 : -90;
+        SCR_CameraFocuser.instance.zRot += rotNum;
+        for(int i = 0; i < rows.Length; i++){
+            for(int j = 0; j < rows[i].slots.Length; j++){
+                Debug.Log(rows[i].slots[j].tag);
+                rows[i].slots[j].SetZRot(rotNum);
+            }
+        }
     }
 
     void PositionRows(){
@@ -60,6 +106,15 @@ public class SCR_LevelGenerator : MonoBehaviour{
             row.transform.position = new Vector3(0f,(float)yPos,0f);
             row.PositionObjects();
             yPos++;
+        }
+    }
+
+    void GeneratePuffs(){
+        for (int i = 0; i < maxSize.x; i++){
+            for (int j = 0; j < maxSize.y; j++){
+                Vector3 pos = new Vector3( (float)i , (float)j , 0f);
+                Instantiate(puffPrefab,pos,Quaternion.identity);
+            }
         }
     }
 
@@ -106,12 +161,24 @@ public class SCR_LevelGenerator : MonoBehaviour{
     public void SwitchObjects(Vector2Int pos1, Vector2Int pos2){ //switch the position of two objects
         SCR_WorldPositioner obj1 = GetElementAtCoord(pos1);
         SCR_WorldPositioner obj2 = GetElementAtCoord(pos2);
-        rows[pos1.y].slots[pos1.x] = obj2;
-        rows[pos2.y].slots[pos2.x] = obj1;
-        obj1.desiredWorldPos = pos2;
-        obj2.desiredWorldPos = pos1;
-        colorScript.SwitchColorSingle(pos1);
-        colorScript.SwitchColorSingle(pos2);
+        if (obj1 == obj2){
+            obj1.SetDesiredWorldPosFromInt(pos1);
+        }else{
+            rows[pos1.y].slots[pos1.x] = obj2;
+            rows[pos2.y].slots[pos2.x] = obj1;
+            obj1.desiredWorldPos = pos2;
+            obj2.desiredWorldPos = pos1;
+            colorScript.SwitchColorSingle(pos1);
+            colorScript.SwitchColorSingle(pos2);
+        }
+    }
+
+    public void SwitchObjects(Vector2 pos1, Vector2 pos2){
+        SwitchObjects(FloatVectToInt(pos1) , FloatVectToInt(pos2));
+    }
+
+    Vector2Int FloatVectToInt(Vector2 vect){
+        return new Vector2Int((int)vect.x , (int)vect.y);
     }
 
     public void ReplaceObject(Vector2Int pos, GameObject prefab, Color color){ //unload the object in a position and load a different one

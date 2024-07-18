@@ -16,20 +16,40 @@ public class SCR_CameraFocuser : MonoBehaviour{
 
     [Header("Variables")]
     public float padding;
+    public float zRot = 0f;
+    public float actualzRot = 0f;
 
     void Update(){
         if (focus != null){
-            transform.position = new Vector3(focus.position.x,focus.position.y,-10f);
+            transform.position = Vector3.Lerp(
+                transform.position ,                                            //START POS
+                new Vector3(focus.position.x,focus.position.y,-10f) ,           //END POS
+                10f * Time.deltaTime                                            //LERP STRENGTH
+            );
+
+        actualzRot = Mathf.Lerp(actualzRot , zRot , 5f * Time.deltaTime);
+        if (actualzRot < 0)
+            actualzRot += 360;
+        else if (actualzRot >= 360)
+            actualzRot -= 360;
+        transform.eulerAngles = new Vector3( 0f, 0f, actualzRot);
         }
     }
 
     public void SetFocus(Vector2 coord){
+        DestroyFocus();
         focus = new GameObject("CameraFocus").transform;
         focus.transform.position = coord;
     }
 
     public void SetFocus(GameObject newFocus){
+        DestroyFocus();
         focus = newFocus.transform;
+    }
+
+    void DestroyFocus(){
+        if (focus == null) return;
+        if (focus.name == "CameraFocus") Destroy(focus.gameObject);
     }
 
     public void SetSize(Vector2Int fieldSize){

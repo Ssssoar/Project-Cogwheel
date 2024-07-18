@@ -15,6 +15,13 @@ public class SCR_RecordTracker : MonoBehaviour{
 
     [Header("Variable")]
     public string text;
+    public KeyCode deleteRecords;
+
+    void Update(){
+        if (Input.GetKeyDown(deleteRecords)){
+            PlayerPrefs.DeleteAll();
+        }
+    }
 
     public void NewLevel(string levelName){
         int levelRecord = PlayerPrefs.GetInt(levelName,int.MaxValue);

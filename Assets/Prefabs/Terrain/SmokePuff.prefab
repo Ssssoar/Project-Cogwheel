@@ -129,8 +129,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -155,10 +155,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 8521809770502318129}
   spriteList:
-  - {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 717797867, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 806668978, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: -645820539, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -78959611, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1131552734, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1805794168, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
 --- !u!114 &755854297342139364
 MonoBehaviour:
@@ -173,6 +173,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
 --- !u!1 &3168240373312945030
 GameObject:
   m_ObjectHideFlags: 0
@@ -248,8 +249,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -274,10 +275,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 8438186572061717140}
   spriteList:
-  - {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 717797867, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 806668978, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: -645820539, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -78959611, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1131552734, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1805794168, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
 --- !u!114 &2866284859877470618
 MonoBehaviour:
@@ -292,6 +293,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
 --- !u!114 &3528191067578346944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -381,8 +383,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -407,10 +409,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 4102093397594219544}
   spriteList:
-  - {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 717797867, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 806668978, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: -645820539, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -78959611, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1131552734, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1805794168, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
 --- !u!114 &843584060314342065
 MonoBehaviour:
@@ -425,6 +427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
 --- !u!114 &2759872776636602040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -514,8 +517,8 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  m_SortingOrder: 20
+  m_Sprite: {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -540,10 +543,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   img: {fileID: 4055437541593419381}
   spriteList:
-  - {fileID: 286404506, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 717797867, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: 806668978, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
-  - {fileID: -645820539, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1465969210, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -78959611, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1131552734, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1805794168, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
 --- !u!114 &7328642083114560960
 MonoBehaviour:
@@ -558,6 +561,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
+  positionOverride: {fileID: 0}
 --- !u!114 &1603358372669032053
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
+
+public class SCR_SpawnRandomPuffs : MonoBehaviour{
+    [Header("References")]
+    public Image toCheck;
+
+    [Header("Prefabs")]
+    public GameObject toSpawn;
+
+    [Header("Variables")]
+    public Vector2 mins;
+    public Vector2 maxs;
+    public int numberToSpawn;
+    
+
+    [ContextMenu("Spawn")] 
+    public void Spawn(){
+        if ((toCheck != null) && (toCheck.color.a == 0f)) return; //this to signal that there's been no high score
+        for (int i = 0; i < numberToSpawn; i++){
+            Vector3 spawnPos = new Vector3(
+                Random.Range(mins.x , maxs.x) ,
+                Random.Range(mins.y , maxs.y) , 
+                0f
+            );
+            spawnPos += transform.parent.position;
+            Instantiate(toSpawn, spawnPos, Quaternion.identity,transform.parent); 
+        }
+    }
+}

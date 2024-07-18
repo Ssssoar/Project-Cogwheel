@@ -7,11 +7,13 @@ public class SCR_RowIndex : MonoBehaviour{
     public Vector2Int[] additional;
 
     int addIndex = 0;
+    bool initialize = true;
 
     [HideInInspector]
     public SCR_WorldPositioner[] slots;
     // Start is called before the first frame update
     void Awake(){
+        if (initialize == false) return;
         slots = new SCR_WorldPositioner[objects.Length];
         CreateObjects();
     }

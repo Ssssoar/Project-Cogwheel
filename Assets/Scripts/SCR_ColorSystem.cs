@@ -31,7 +31,7 @@ public class SCR_ColorSystem : MonoBehaviour{
     Color GetColor(Vector2Int position){
         string objTag = SCR_LevelGenerator.instance.GetElementAtCoord(position).tag;
         Color colorToReturn;
-        if ((objTag == "Wall")||(objTag == "Space"))
+        if ((objTag == "Wall")||(objTag == "Space")||(objTag == "Corner"))
             colorToReturn = element;
         else if(objTag == "End")
             colorToReturn = highlight;

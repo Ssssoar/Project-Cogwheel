@@ -71,14 +71,15 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
         UpdateCommands(null,null);
     }
 
-    void UpdateCommands(List<Command> list1,List<Command> list2){
+    public void UpdateCommands(List<Command> list1,List<Command> list2){
         if (list1 == null)
             list1 = commandList1;
         if (list2 == null)
             list2 = commandList2;
         UpdateContainer(arrowContainer1, list1);
         UpdateContainer(arrowContainer2, list2);
-
+        commandList1 = list1;
+        commandList2 = list2;
     }
 
     void UpdateContainer(GameObject container, List<Command> list){
@@ -87,6 +88,7 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
         container.GetComponentsInChildren<Transform>(childrenList);
         childrenList.Remove(container.transform);
         foreach(Transform child in childrenList){
+            child.SetParent(null);
             Destroy(child.gameObject);
         }
         //create new children

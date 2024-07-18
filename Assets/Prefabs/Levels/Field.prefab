@@ -110,9 +110,14 @@ MonoBehaviour:
   colorScript: {fileID: 1956660936872611658}
   emptyPrefab: {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
   puffPrefab: {fileID: 791016010028657649, guid: d959134b24e5d4d49a1c1874ff9f083e, type: 3}
-  nextLevel: {fileID: 0}
-  levelName: 
+  nextLevel: {fileID: 1363717453947259919, guid: fd0241e6728a5944f91c6e81e355ba21, type: 3}
+  rowPrefab: {fileID: 0}
+  levelName: 0-0 Test Level
+  leftCommands: 0100000000000000
+  rightCommands: 0200000003000000
   maxSize: {x: 0, y: 0}
+  buttonList: []
+  buttonPos: []
 --- !u!114 &1956660936872611658
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -125,12 +130,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14b1bacda16de1841a8dd9c1a6382648, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  background: {r: 0.18076894, g: 0.29097584, b: 0.3433962, a: 1}
-  element: {r: 0.23798506, g: 0.23950714, b: 0.6603774, a: 1}
-  highlight: {r: 0.735849, g: 0.60618514, b: 0.137451, a: 1}
+  background: {r: 0.690566, g: 0.43689469, b: 0.4104307, a: 1}
+  element: {r: 0.96981126, g: 0.18846112, b: 0.12991813, a: 1}
+  highlight: {r: 0.97946846, g: 1, b: 0.19433957, a: 1}
   keyColors:
-  - {r: 1, g: 0, b: 0, a: 1}
-  - {r: 0, g: 1, b: 0, a: 1}
+  - {r: 0.4111997, g: 0.7790021, b: 0.78113204, a: 1}
+  - {r: 0.5813955, g: 0.79622644, b: 0.5813955, a: 1}
   darkenFactor: 0.85
   lerpFactor: 5
 --- !u!1 &5981672859585543400
@@ -234,13 +239,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   objects:
   - {fileID: 5448867621303727259, guid: af757da1cfe99244898e05109c65ae19, type: 3}
-  - {fileID: 6312399663685538005, guid: 0f18f8fb21e961b4b8e366b8752c7944, type: 3}
-  - {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
+  - {fileID: 1747748434192855842, guid: c7096138897194e49adad70dc8b49bbf, type: 3}
   - {fileID: 2903839606919461858, guid: a03b92a29f8af0a44a6dc0929a4d2c3b, type: 3}
   - {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
   - {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
   - {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
+  - {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
+  - {fileID: 6084625665153583121, guid: db0ad2d92b4977f43bd2149e94c7b474, type: 3}
   - {fileID: 4358222341066072138, guid: 0e6f5c2db5aeec746be9ee5d491dbfbe, type: 3}
   additional:
-  - {x: 7, y: 2}
+  - {x: 5, y: 1}
   slots: []
