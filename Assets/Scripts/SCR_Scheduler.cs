@@ -21,6 +21,7 @@ public class SCR_Scheduler : MonoBehaviour{
     public float lerpStrength = 20f;
     public bool blocked;
     public int rotations = 0;
+    public bool test;
 
     int waitBeats = 2;
     List<Command> waitingCommands = new List<Command>();
@@ -35,6 +36,23 @@ public class SCR_Scheduler : MonoBehaviour{
                 moveTo = queuePositions[queuePositions.Length-1];
             //Debug.Log(pendingArrows[i]);
             pendingArrows[i].transform.position = Vector3.Lerp(pendingArrows[i].transform.position , moveTo.position , lerpStrength * Time.deltaTime);
+        }
+        if (!test) return;
+        if (Input.GetKeyDown("w")){
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(Command.up);
+            ExecuteCommand(DoRotations(Command.up));
+        }
+        if (Input.GetKeyDown("a")){
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(Command.left);
+            ExecuteCommand(DoRotations(Command.left));
+        }
+        if (Input.GetKeyDown("s")){
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(Command.down);
+            ExecuteCommand(DoRotations(Command.down));
+        }
+        if (Input.GetKeyDown("d")){
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(Command.right);
+            ExecuteCommand(DoRotations(Command.right));
         }
     }
 
@@ -73,6 +91,7 @@ public class SCR_Scheduler : MonoBehaviour{
                 return;
             }
             Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);
+            SCR_PlayerMovement.instance.facingScript.ChangeFacing(waitingCommands[0]);
             ExecuteCommand(DoRotations(waitingCommands[0]));
             waitingCommands.RemoveAt(0);
             GameObject toDestroy = pendingArrows[0];

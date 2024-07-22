@@ -12,7 +12,6 @@ public class SCR_PlayerMovement : MonoBehaviour{
 
     public SCR_FacingManager facingScript;
     public SCR_WorldPositioner positionScript;
-    public bool test;
     public float bumpTime; //EXTREMELY IMPORTANT THIS MUST BE LESS THAN THE TIME BETWEEN COMMANDS IN THE SCHEDULER
 
     float bumpTimer = -1f;
@@ -23,12 +22,15 @@ public class SCR_PlayerMovement : MonoBehaviour{
     Vector2 nextPos;
     Vector2 cornerPos;
     Vector2Int startPos;
+    Vector2Int REALPOS = new Vector2Int(-1,-1);
+    Vector2Int nullish = new Vector2Int(-1,-1);
 
     void Update(){
         if (bumpTimer >= 0f){
             bumpTimer -= Time.deltaTime;
             if (bumpTimer < 0f){
-                SCR_LevelGenerator.instance.SwitchObjects(startPos, actualPos);
+                SCR_LevelGenerator.instance.SwitchObjects(startPos, (REALPOS == nullish)? actualPos : REALPOS);
+                REALPOS = nullish;
                 SCR_Scheduler.instance.blocked = false;
             }
         }
@@ -51,24 +53,10 @@ public class SCR_PlayerMovement : MonoBehaviour{
                 SCR_Scheduler.instance.blocked = false;
             }
         }
-        if (!test) return;
-        if (Input.GetKeyDown("w")){
-            TryMovement(Command.up);
-        }
-        if (Input.GetKeyDown("a")){
-            TryMovement(Command.left);
-        }
-        if (Input.GetKeyDown("s")){
-            TryMovement(Command.down);
-        }
-        if (Input.GetKeyDown("d")){
-            TryMovement(Command.right);
-        }
     }
 
     public void TryMovement(Command movement){
         startPos = positionScript.IntDesiredWorldPos();
-        facingScript.ChangeFacing(movement);
         Vector2Int gridPos = startPos;
         gridPos += SCR_LevelGenerator.instance.DirectionToVect(movement);
         MoveInto(gridPos , positionScript.IntDesiredWorldPos());
@@ -95,6 +83,7 @@ public class SCR_PlayerMovement : MonoBehaviour{
             break;
             case("Corner"): //query the corner for where to move
                 { //LMAO SCOPE
+                    if (REALPOS == nullish) REALPOS = currentPos;
                     SCR_Scheduler.instance.blocked = true;
                     Vector2 bumpPos = currentPos + (bumped.desiredWorldPos - currentPos)*0.85f;
                     nextPos = bumped.GetComponent<SCR_Corner>().ReturnPosition(currentPos);
@@ -114,6 +103,7 @@ public class SCR_PlayerMovement : MonoBehaviour{
                     SCR_Scheduler.instance.blocked = false;
                 }
                 SCR_LevelGenerator.instance.SwitchObjects(startPos , gridPos);
+                REALPOS = nullish;
             break;
             case("End"): //moves, but steps on top
                 positionScript.desiredWorldPos = new Vector2((float)gridPos.x, (float)gridPos.y);

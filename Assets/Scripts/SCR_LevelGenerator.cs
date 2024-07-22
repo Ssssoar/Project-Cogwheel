@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Playables;
 
 public class SCR_LevelGenerator : MonoBehaviour{
     public static SCR_LevelGenerator instance;
@@ -16,6 +17,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
     [Header("Prefabs")]
     public GameObject emptyPrefab;
     public GameObject puffPrefab;
+    public GameObject silentPrefab;
     public GameObject nextLevel;
     public GameObject rowPrefab;
 
@@ -59,7 +61,11 @@ public class SCR_LevelGenerator : MonoBehaviour{
         middlePos /= 2;
         SCR_CameraFocuser.instance.SetFocus(middlePos);
         SCR_CameraFocuser.instance.SetSize(maxSize);
+        SCR_CameraFocuser.instance.zRot = 0f;
+        SCR_CameraFocuser.instance.transform.rotation = Quaternion.identity;
+        SCR_Scheduler.instance.rotations = 0;
         SCR_MouseInputReceiver.instance.UpdateCommands(leftCommands,rightCommands);
+        SCR_Scheduler.instance.blocked = false;
     }
 
     void ScanButtons(){
@@ -110,10 +116,16 @@ public class SCR_LevelGenerator : MonoBehaviour{
     }
 
     void GeneratePuffs(){
+        int soundLeft = 6;
         for (int i = 0; i < maxSize.x; i++){
             for (int j = 0; j < maxSize.y; j++){
                 Vector3 pos = new Vector3( (float)i , (float)j , 0f);
-                Instantiate(puffPrefab,pos,Quaternion.identity);
+                if (soundLeft > 0){
+                    soundLeft--;
+                    Instantiate(puffPrefab,pos,Quaternion.identity);
+                }else{
+                    Instantiate(silentPrefab,pos,Quaternion.identity);
+                }
             }
         }
     }
@@ -199,6 +211,22 @@ public class SCR_LevelGenerator : MonoBehaviour{
 
     [ContextMenu("TriggerNextLevel")]
     public void LoadLevel(){
-        Instantiate(nextLevel,Vector3.zero,Quaternion.identity,transform.parent);
+        if (nextLevel != null){
+            SCR_LevelReloader.instance.levelToReload = nextLevel;
+            Instantiate(nextLevel,Vector3.zero,Quaternion.identity,transform.parent);
+        }else{
+            DisappearAllButPlayer();
+            SCR_SequenceReferenceHolder.instance.gameEndSequence.Play();
+        }
+    }
+
+    void DisappearAllButPlayer(){
+        for(int i = 0; i < rows.Length; i++){
+            for(int j = 0; j < rows[i].slots.Length; j++){
+                if (rows[i].slots[j].tag != "Player"){
+                    ReplaceObject(new Vector2Int(j,i), null, Color.black);
+                }
+            }
+        }
     }
 }

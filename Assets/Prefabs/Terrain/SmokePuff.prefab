@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7429531917985399971}
   - component: {fileID: 6509417331696998411}
+  - component: {fileID: -5883817467715331678}
   m_Layer: 0
   m_Name: SmokePuff
   m_TagString: Untagged
@@ -55,6 +56,19 @@ MonoBehaviour:
   colorSetter: {fileID: 8521809770502318129}
   destroyTime: 0.5
   distance: 0.5
+--- !u!114 &-5883817467715331678
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 791016010028657649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3c0192301ae4e849ba628bfe4b163b1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  lib: {fileID: 11400000, guid: a61ba1bae4ebfa444b637b505fa6b2ee, type: 2}
 --- !u!1 &1605347020304867243
 GameObject:
   m_ObjectHideFlags: 0
@@ -174,6 +188,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!1 &3168240373312945030
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,6 +311,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!114 &3528191067578346944
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -428,6 +448,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!114 &2759872776636602040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -562,6 +585,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!114 &1603358372669032053
 MonoBehaviour:
   m_ObjectHideFlags: 0

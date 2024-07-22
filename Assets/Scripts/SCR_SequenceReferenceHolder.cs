@@ -12,6 +12,7 @@ public class SCR_SequenceReferenceHolder : MonoBehaviour{
     }
 
     public PlayableDirector nextLevelSequence;
+    public PlayableDirector gameEndSequence;
     public Image newHiScoreGraphic;
 
     public void CheckRecord(){

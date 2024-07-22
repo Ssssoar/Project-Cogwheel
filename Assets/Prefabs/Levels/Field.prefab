@@ -110,11 +110,13 @@ MonoBehaviour:
   colorScript: {fileID: 1956660936872611658}
   emptyPrefab: {fileID: 3468272597849154423, guid: 02b98a0f71e8b2041aab086b232593b3, type: 3}
   puffPrefab: {fileID: 791016010028657649, guid: d959134b24e5d4d49a1c1874ff9f083e, type: 3}
+  silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 1363717453947259919, guid: fd0241e6728a5944f91c6e81e355ba21, type: 3}
   rowPrefab: {fileID: 0}
   levelName: 0-0 Test Level
   leftCommands: 0100000000000000
   rightCommands: 0200000003000000
+  clockWiseTurn: 0
   maxSize: {x: 0, y: 0}
   buttonList: []
   buttonPos: []

@@ -9,6 +9,7 @@ public class SCR_NotePicker : MonoBehaviour{
         else instance = this;
     }
 
+    public SCR_BeatKeeper beatScript;
     public LibreriaDeSonidos tonicInvHi;
     public LibreriaDeSonidos tonicInvLo;
     public LibreriaDeSonidos tonicHi;
@@ -19,6 +20,8 @@ public class SCR_NotePicker : MonoBehaviour{
     public LibreriaDeSonidos domLo;
     public AudioClip firstChord;
     public AudioClip otherChord;
+    public AudioClip firstDomChord;
+    public AudioClip otherDomChord;
     public GameObject victoryObj;
     public float minTime;
     public float maxTime;
@@ -60,12 +63,22 @@ public class SCR_NotePicker : MonoBehaviour{
     public void PlayChord(){
         switch(currentInv){
             case(Inversion.first):
-                SoundFXManager.instance.ReproducirSFX(firstChord);
+                if (CheckVictory() == Chord.dominant)
+                    SoundFXManager.instance.ReproducirSFX(firstDomChord);
+                else
+                    SoundFXManager.instance.ReproducirSFX(firstChord);
             break;
             case(Inversion.other):
-                SoundFXManager.instance.ReproducirSFX(otherChord);
+                if (CheckVictory() == Chord.dominant)
+                    SoundFXManager.instance.ReproducirSFX(otherDomChord);
+                else
+                    SoundFXManager.instance.ReproducirSFX(otherChord);
             break;
         }
+    }
+
+    public void AccelPlay(){
+        beatScript.bassBeatInterval = 1;
     }
 
     public void PlayNote(Pitch pitch){

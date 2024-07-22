@@ -8,6 +8,7 @@ public class SCR_LevelSender : MonoBehaviour{
     public Image imgComp;
     public void SendLevel(){
         SCR_LevelSpawner.instance.levelToSpawn = levelToSend;
+        SCR_LevelReloader.instance.levelToReload = levelToSend;
         GameObject instantiated = Instantiate(gameObject,transform.position,Quaternion.identity,transform.parent.parent);
         instantiated.GetComponent<SCR_WorldPositioner>().enabled = true;
         SCR_LevelSpawner.instance.buttonToKill = instantiated;

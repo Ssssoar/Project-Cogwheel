@@ -9,6 +9,7 @@ public class SCR_SpawnRandomPuffs : MonoBehaviour{
 
     [Header("Prefabs")]
     public GameObject toSpawn;
+    public GameObject silentSpawn;
 
     [Header("Variables")]
     public Vector2 mins;
@@ -26,7 +27,10 @@ public class SCR_SpawnRandomPuffs : MonoBehaviour{
                 0f
             );
             spawnPos += transform.parent.position;
-            Instantiate(toSpawn, spawnPos, Quaternion.identity,transform.parent); 
+            if (i < 6 )
+                Instantiate(toSpawn, spawnPos, Quaternion.identity,transform.parent); 
+            else
+                Instantiate(silentSpawn, spawnPos, Quaternion.identity,transform.parent);
         }
     }
 }
