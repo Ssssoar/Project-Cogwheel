@@ -225,7 +225,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 1beffcdef76e2d54ca0fc061251f8760, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 19 - Dramatic Twist
+  levelName: "19 - El Giro Dram\xE1tico"
+  enLevelName: 19 - Dramatic Twist
   leftCommands: 01000000
   rightCommands: 02000000
   clockWiseTurn: 0

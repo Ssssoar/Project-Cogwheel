@@ -233,7 +233,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: c8c152c96f81388488445bdb73f8de2b, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 8 - Here and There
+  levelName: "8 - En cada Rinc\xF3n"
+  enLevelName: 8 - Here and There
   leftCommands: 010000000100000001000000
   rightCommands: 0300000002000000
   clockWiseTurn: 0

@@ -113,7 +113,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 8a35a9e5790349e41a7122ae62ac5533, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 13 - Key is Help
+  levelName: 13 - Llave es Clave
+  enLevelName: 13 - Key is Help
   leftCommands: 01000000
   rightCommands: 02000000
   clockWiseTurn: 0

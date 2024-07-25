@@ -356,7 +356,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 15510960149af9340995440257301847, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 9 - One or the Other
+  levelName: 9 - Uno que otro camino
+  enLevelName: 9 - One of two
   leftCommands: 01000000
   rightCommands: 020000000200000001000000
   clockWiseTurn: 0

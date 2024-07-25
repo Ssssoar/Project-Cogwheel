@@ -345,7 +345,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 1e6cbc331bba85940bc64cdd46862d23, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 5 - Climb the Stairs
+  levelName: 5 - Gran Escala
+  enLevelName: 5 - Stair Climb
   leftCommands: 030000000000000000000000
   rightCommands: 02000000
   clockWiseTurn: 0

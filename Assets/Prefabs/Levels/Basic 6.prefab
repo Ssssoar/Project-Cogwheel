@@ -282,7 +282,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 0e3052d6e1785ed488e4b273810a8561, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 6 - Find Yourself
+  levelName: "6 - Encu\xE9ntrate"
+  enLevelName: 6 - Find Yourself
   leftCommands: 0100000003000000
   rightCommands: 0200000002000000
   clockWiseTurn: 0

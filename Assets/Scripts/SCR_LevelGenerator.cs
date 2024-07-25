@@ -23,6 +23,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
 
     [Header("Variables")]
     public string levelName;
+    public string enLevelName;
     public List<Command> leftCommands;
     public List<Command> rightCommands;
     public bool clockWiseTurn;
@@ -36,8 +37,10 @@ public class SCR_LevelGenerator : MonoBehaviour{
 
     void Update(){
         if (!nameUpdated){
-            if (SCR_Scheduler.instance != null) {
-                SCR_Scheduler.instance.UpdateLevelName(levelName);
+            if (SCR_Scheduler.instance != null) { 
+                SCR_Scheduler.instance.UpdateLevelName(
+                    ((Lang)PlayerPrefs.GetInt("lang" , (int)Lang.español) == Lang.español)? levelName : enLevelName
+                );
                 nameUpdated = true;
             }
         }

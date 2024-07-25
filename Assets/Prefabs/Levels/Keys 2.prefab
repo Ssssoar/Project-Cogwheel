@@ -170,7 +170,8 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 1ce3d70b3f25c9e479aa1f61c596b1f2, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 14 - Key is Trap
+  levelName: 14 - Llave es Trampa
+  enLevelName: 14 - Key is Trap
   leftCommands: 02000000
   rightCommands: 01000000
   clockWiseTurn: 0
