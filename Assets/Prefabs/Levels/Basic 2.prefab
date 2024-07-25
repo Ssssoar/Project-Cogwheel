@@ -113,7 +113,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: d077b8c6345c05646ae7db1f722712f3, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 2 - Basico Movimiento
+  levelName: 2 - Movement Basics
   leftCommands: 02000000
   rightCommands: 01000000
   clockWiseTurn: 0

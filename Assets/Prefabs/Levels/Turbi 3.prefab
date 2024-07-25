@@ -281,7 +281,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 440cd4237d2cff941bf9a68a7db6db37, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 21 - La Llave Gira
+  levelName: 21 - Turn the Key
   leftCommands: 01000000
   rightCommands: 02000000
   clockWiseTurn: 0

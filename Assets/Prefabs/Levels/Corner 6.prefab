@@ -356,7 +356,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: c62148f38edfc1e4fba2bb044ba81456, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 12 - Mister Calamar
+  levelName: 12 - Senor Squid
   leftCommands: 030000000000000002000000
   rightCommands: 000000000300000002000000
   clockWiseTurn: 0

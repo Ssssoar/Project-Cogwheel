@@ -13,6 +13,7 @@ public class SCR_BeatKeeper : MonoBehaviour{
     float timeToNextBeat;
     int beatsToNextBass;
     int beatsToNextHighlight;
+    public bool chordChance = false;
 
     void Start(){
         timeToNextBeat = beatTime;
@@ -41,10 +42,15 @@ public class SCR_BeatKeeper : MonoBehaviour{
         }
         beatsToNextHighlight--;
         if(beatsToNextHighlight == 0){
-            if(Random.Range(0,2) == 0)
-                SCR_NotePicker.instance.PlayNote(Pitch.high);
-            else
-                SCR_NotePicker.instance.PlayNote(Pitch.low);
+            
+            if((chordChance) && (Random.Range(0,6) == 0))
+                SCR_NotePicker.instance.PlayChord();
+            else{
+                if(Random.Range(0,2) == 0)
+                    SCR_NotePicker.instance.PlayNote(Pitch.high);
+                else
+                    SCR_NotePicker.instance.PlayNote(Pitch.low);
+            }
             beatsToNextHighlight = bassBeatInterval;
         }
     }

@@ -394,7 +394,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 4c28e28ca7104c84ba24c31b3220f996, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 11 - Rara Escala
+  levelName: 11 - Weirder Stairs
   leftCommands: 0000000002000000
   rightCommands: 0200000000000000
   clockWiseTurn: 0

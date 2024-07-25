@@ -174,7 +174,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 0}
   rowPrefab: {fileID: 0}
-  levelName: 24 - Amigos
+  levelName: 24 - Friends
   leftCommands: 0100000001000000
   rightCommands: 0200000002000000
   clockWiseTurn: 0

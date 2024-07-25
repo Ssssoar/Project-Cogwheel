@@ -292,7 +292,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 1b29759cd5aa67849980fc0ee2c5f4db, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 20 - Marea La Cosa
+  levelName: 20 - Spinning Thing
   leftCommands: 00000000020000000300000001000000
   rightCommands: 02000000
   clockWiseTurn: 0

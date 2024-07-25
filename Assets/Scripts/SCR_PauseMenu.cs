@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class SCR_PauseMenu : MonoBehaviour{
+    public GameObject endIfTheseActive;
     public GameObject pauseMenu;
     public KeyCode menuKey;
 
@@ -11,7 +13,10 @@ public class SCR_PauseMenu : MonoBehaviour{
     void Update(){
         if(SCR_LevelGenerator.instance == null) return;
         if(Input.GetKeyDown(menuKey)){
-            TogglePauseState();
+            if(endIfTheseActive.activeInHierarchy){
+                SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            }else
+                TogglePauseState();
         }
     }
 

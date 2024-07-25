@@ -37,7 +37,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 39}
+  m_SizeDelta: {x: 40, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &679137167812146239
 CanvasRenderer:
@@ -150,7 +150,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 39}
+  m_SizeDelta: {x: 40, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3530574142809939259
 CanvasRenderer:
@@ -263,7 +263,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 39}
+  m_SizeDelta: {x: 40, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3473101322615571444
 CanvasRenderer:
@@ -398,7 +398,7 @@ MonoBehaviour:
   lowerLeft: {fileID: 8313854026224175793}
   colorSetter: {fileID: 0}
   destroyTime: 0.35
-  distance: 50
+  distance: 25
 --- !u!114 &4730785518644978022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -449,7 +449,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 38, y: 39}
+  m_SizeDelta: {x: 40, y: 41}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3652035621954790243
 CanvasRenderer:

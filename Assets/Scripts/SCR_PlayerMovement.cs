@@ -85,8 +85,9 @@ public class SCR_PlayerMovement : MonoBehaviour{
                 { //LMAO SCOPE
                     if (REALPOS == nullish) REALPOS = currentPos;
                     SCR_Scheduler.instance.blocked = true;
-                    Vector2 bumpPos = currentPos + (bumped.desiredWorldPos - currentPos)*0.85f;
                     nextPos = bumped.GetComponent<SCR_Corner>().ReturnPosition(currentPos);
+                    float bumpDist = (nextPos == currentPos)? 0.35f : 0.85f;
+                    Vector2 bumpPos = currentPos + (bumped.desiredWorldPos - currentPos)*bumpDist;
                     cornerPos = new Vector2((float)gridPos.x , (float)gridPos.y);
                     positionScript.desiredWorldPos = bumpPos;
                     cornerTimer = bumpTime;

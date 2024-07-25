@@ -26,6 +26,8 @@ public class SCR_NotePicker : MonoBehaviour{
     public float minTime;
     public float maxTime;
 
+    public bool overrideChord;
+    public Chord chordOverride;
     Inversion currentInv = Inversion.first;
     float timer; 
 
@@ -83,7 +85,9 @@ public class SCR_NotePicker : MonoBehaviour{
 
     public void PlayNote(Pitch pitch){
         LibreriaDeSonidos toPlay = null;
-        Chord chord = CheckVictory();
+        Chord chord = chordOverride;
+        if (!overrideChord)
+            chord = CheckVictory();
         if(
             (currentInv == Inversion.first)&&
             (chord      == Chord.dominant )&&

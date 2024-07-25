@@ -346,7 +346,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 465fbed8ffcf1e145bcbb4a8fe264dbc, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 10 - Empujado
+  levelName: 10 - Shoved Around
   leftCommands: 01000000
   rightCommands: 02000000
   clockWiseTurn: 0

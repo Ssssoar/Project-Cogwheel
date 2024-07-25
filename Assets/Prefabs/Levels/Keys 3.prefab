@@ -229,7 +229,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: 97d0b2e354f4aaf4b886b5f4565654bd, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 15 - Llave es Multiples
+  levelName: 15 - Key is Many
   leftCommands: 0100000003000000
   rightCommands: 0200000000000000
   clockWiseTurn: 0

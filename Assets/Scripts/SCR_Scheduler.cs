@@ -114,6 +114,7 @@ public class SCR_Scheduler : MonoBehaviour{
 
     [ContextMenu ("Remove All Commands")]
     public void CancelAllCommands(){
+        waitBeats = 2;
         waitingCommands.Clear();
         while(pendingArrows.Count > 0){
             Instantiate(smokePuffUI,pendingArrows[0].transform.position,Quaternion.identity,transform);

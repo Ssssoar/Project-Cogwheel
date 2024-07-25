@@ -464,7 +464,7 @@ MonoBehaviour:
   silentPrefab: {fileID: 791016010028657649, guid: 4babef92902537940995197a04ea43ef, type: 3}
   nextLevel: {fileID: 4690468120150831288, guid: f585663c474c34945811949a1080bae7, type: 3}
   rowPrefab: {fileID: 0}
-  levelName: 22 - Por Partes
+  levelName: 22 - By Parts
   leftCommands: 0000000003000000
   rightCommands: 0300000000000000
   clockWiseTurn: 0
