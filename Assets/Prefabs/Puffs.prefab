@@ -399,6 +399,7 @@ MonoBehaviour:
   colorSetter: {fileID: 0}
   destroyTime: 0.35
   distance: 25
+  relative: 1
 --- !u!114 &4730785518644978022
 MonoBehaviour:
   m_ObjectHideFlags: 0

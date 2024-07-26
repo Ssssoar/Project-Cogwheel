@@ -11,10 +11,14 @@ public class SCR_SendFourCorners : MonoBehaviour{
     public SpriteRenderer colorSetter;
     public float destroyTime;
     public float distance;
+    public bool relative;
 
     float timer;
     
-    void Start(){
+    void Start(){        
+        if (relative){
+            distance = (Screen.width * distance)/960;
+        }
         timer = destroyTime;
         upperLeft.desiredWorldPos  = new Vector2(transform.position.x - distance , transform.position.y + distance);
         upperRight.desiredWorldPos = new Vector2(transform.position.x + distance , transform.position.y + distance);
