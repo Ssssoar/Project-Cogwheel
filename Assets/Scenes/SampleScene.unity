@@ -2357,17 +2357,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   randomerComp: {fileID: 376733791}
   spriteList:
-  - {fileID: -152729864, guid: b4b34eaaf1e43da4e9b2b05ea78a7d61, type: 3}
-  - {fileID: -525466438, guid: b4b34eaaf1e43da4e9b2b05ea78a7d61, type: 3}
-  - {fileID: -970959229, guid: b4b34eaaf1e43da4e9b2b05ea78a7d61, type: 3}
-  - {fileID: 1974345446, guid: b4b34eaaf1e43da4e9b2b05ea78a7d61, type: 3}
-  - {fileID: 648510793, guid: b4b34eaaf1e43da4e9b2b05ea78a7d61, type: 3}
+  - {fileID: -2076266258, guid: c9a4febffdf32ec4993a34f538a054f9, type: 3}
+  - {fileID: 1857521614, guid: c9a4febffdf32ec4993a34f538a054f9, type: 3}
+  - {fileID: -76755036, guid: c9a4febffdf32ec4993a34f538a054f9, type: 3}
+  - {fileID: -1680603547, guid: c9a4febffdf32ec4993a34f538a054f9, type: 3}
+  - {fileID: 1545623952, guid: c9a4febffdf32ec4993a34f538a054f9, type: 3}
   ENspriteList:
-  - {fileID: 436530382, guid: 5bb55d5d694cd5d40901dd68b1bb31aa, type: 3}
-  - {fileID: -537057566, guid: 5bb55d5d694cd5d40901dd68b1bb31aa, type: 3}
-  - {fileID: -84675696, guid: 5bb55d5d694cd5d40901dd68b1bb31aa, type: 3}
-  - {fileID: 994462788, guid: 5bb55d5d694cd5d40901dd68b1bb31aa, type: 3}
-  - {fileID: -471631376, guid: 5bb55d5d694cd5d40901dd68b1bb31aa, type: 3}
+  - {fileID: 1196591631, guid: 372a3662c4e4dc54cbb49246e3f65aa5, type: 3}
+  - {fileID: -749347337, guid: 372a3662c4e4dc54cbb49246e3f65aa5, type: 3}
+  - {fileID: -1395588495, guid: 372a3662c4e4dc54cbb49246e3f65aa5, type: 3}
+  - {fileID: 22123701, guid: 372a3662c4e4dc54cbb49246e3f65aa5, type: 3}
+  - {fileID: -908758367, guid: 372a3662c4e4dc54cbb49246e3f65aa5, type: 3}
 --- !u!1001 &385215427
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5956,6 +5956,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c4fa6d70c44ab42448d6a1fd29680da8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  maxSimultaneous: 6
 --- !u!82 &1048766266
 AudioSource:
   m_ObjectHideFlags: 0
