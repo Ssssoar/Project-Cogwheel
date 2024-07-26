@@ -18,6 +18,11 @@ public class SCR_CameraFocuser : MonoBehaviour{
     public float padding;
     public float zRot = 0f;
     public float actualzRot = 0f;
+    public float darkenFactor = 0f;
+    
+    Color targetColor;
+    Color startColor;
+    float darkenTimer = -1f;
 
     void Update(){
         if (focus != null){
@@ -29,6 +34,10 @@ public class SCR_CameraFocuser : MonoBehaviour{
 
         actualzRot = Mathf.Lerp(actualzRot , zRot , 5f * Time.deltaTime);
         transform.eulerAngles = new Vector3( 0f, 0f, actualzRot);
+        }
+        if (darkenTimer >= 0f){
+            darkenTimer -= Time.deltaTime;
+            cameraComp.backgroundColor = Color.Lerp(startColor,targetColor, 1f - darkenTimer);
         }
     }
 
@@ -54,5 +63,11 @@ public class SCR_CameraFocuser : MonoBehaviour{
         float xSize = ((float)fieldSize.x )/ 2;
         float ySize = ((float)fieldSize.y )/ 2;
         cameraComp.orthographicSize = ((xSize > ySize) ? xSize : ySize) + padding;
+    }
+
+    public void DarkenBG(){
+        targetColor = cameraComp.backgroundColor * darkenFactor;
+        startColor = cameraComp.backgroundColor;
+        darkenTimer = 1f;
     }
 }

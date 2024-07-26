@@ -27,6 +27,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
     public List<Command> leftCommands;
     public List<Command> rightCommands;
     public bool clockWiseTurn;
+    public int starScore;
 
     [HideInInspector]
     public Vector2Int maxSize;
@@ -46,7 +47,7 @@ public class SCR_LevelGenerator : MonoBehaviour{
         }
         if(!recordFetched){
             if (SCR_RecordTracker.instance != null){
-                SCR_RecordTracker.instance.NewLevel(levelName);
+                SCR_RecordTracker.instance.NewLevel(levelName, starScore);
                 recordFetched = true;
             }
         }
@@ -214,9 +215,11 @@ public class SCR_LevelGenerator : MonoBehaviour{
 
     [ContextMenu("TriggerNextLevel")]
     public void LoadLevel(){
-        if (nextLevel != null){
+        if (nextLevel != null){/*
             SCR_LevelReloader.instance.levelToReload = nextLevel;
-            Instantiate(nextLevel,Vector3.zero,Quaternion.identity,transform.parent);
+            Instantiate(nextLevel,Vector3.zero,Quaternion.identity,transform.parent);*/
+            GeneratePuffs();
+            Destroy(gameObject);
         }else{
             DisappearAllButPlayer();
             SCR_SequenceReferenceHolder.instance.gameEndSequence.Play();

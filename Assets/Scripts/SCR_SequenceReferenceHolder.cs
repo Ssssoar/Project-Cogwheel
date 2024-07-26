@@ -26,7 +26,6 @@ public class SCR_SequenceReferenceHolder : MonoBehaviour{
         color.a = 0f;
         newHiScoreGraphic.color = color;
         SCR_ClickCounter.instance.ResetCount();
-        SCR_LevelGenerator.instance.LoadLevel();
-        
+        SCR_LevelGenerator.instance.LoadLevel();   
     }
 }

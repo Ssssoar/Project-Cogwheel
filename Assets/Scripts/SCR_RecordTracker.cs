@@ -12,30 +12,25 @@ public class SCR_RecordTracker : MonoBehaviour{
 
     [Header("References")]
     public TMP_Text recordIndicator;
+    public SCR_MedalTracker medalScript;
 
     [Header("Variable")]
     public string text;
-    public KeyCode deleteRecords;
+    public string enText;
 
-    void Update(){
-        if (Input.GetKeyDown(deleteRecords)){
-            PlayerPrefs.DeleteAll();
-        }
+    int currentStar;
+    string currentLevel;
+
+    public void NewLevel(string levelName , int starScore){
+        string printableText = ((SCR_Language.instance != null) && (SCR_Language.instance.GetLang() == Lang.english)) ? enText : text;
+        recordIndicator.text = printableText + System.Environment.NewLine + starScore;
+        currentStar = starScore;
+        currentLevel = levelName;
     }
 
-    public void NewLevel(string levelName){
-        int levelRecord = PlayerPrefs.GetInt(levelName,int.MaxValue);
-        if (levelRecord == int.MaxValue){
-            recordIndicator.text = text + System.Environment.NewLine + "???";
-        }else{
-            recordIndicator.text = text + System.Environment.NewLine + levelRecord;
-        }
-    }
-
-    public bool SetRecord(int attempt){ //returns whether a new record has been set
-        int oldRecord = PlayerPrefs.GetInt(SCR_LevelGenerator.instance.levelName,int.MaxValue);
-        if (attempt < oldRecord){
-            PlayerPrefs.SetInt(SCR_LevelGenerator.instance.levelName , attempt);
+    public bool SetRecord(int attempt){ //returns whether a new medal was obtained
+        if (attempt <= currentStar){
+            medalScript.NewMedal(currentLevel);
             return true;
         }else{
             return false;

@@ -239,6 +239,7 @@ MonoBehaviour:
   leftCommands: 0200000000000000
   rightCommands: 0300000001000000
   clockWiseTurn: 0
+  starScore: 12
   maxSize: {x: 0, y: 0}
   buttonList: []
   buttonPos: []

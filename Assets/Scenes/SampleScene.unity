@@ -611,6 +611,18 @@ PlayableDirector:
     value: {fileID: 376733794}
   - key: {fileID: -1490322903174327864, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
     value: {fileID: 1048766267}
+  - key: {fileID: 5616444693802210946, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 2137305809}
+  - key: {fileID: -933784838577695506, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 457274171}
+  - key: {fileID: 1270486311389885887, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 110122417}
+  - key: {fileID: 2027873837680077118, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 519420034}
+  - key: {fileID: -2908983219297299170, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 918504733}
+  - key: {fileID: -7910385605286328274, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 1096184567}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &105268267 stripped
@@ -3335,6 +3347,7 @@ GameObject:
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
   - component: {fileID: 519420033}
+  - component: {fileID: 519420034}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3478,6 +3491,37 @@ MonoBehaviour:
   padding: 0.7
   zRot: 0
   actualzRot: 0
+  darkenFactor: 0.85
+--- !u!114 &519420034
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: b66fd7f61c3ac664b8502de7d667771a, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 519420033}
+          m_TargetAssemblyTypeName: SCR_CameraFocuser, Assembly-CSharp
+          m_MethodName: DarkenBG
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &525397936
 GameObject:
   m_ObjectHideFlags: 0
@@ -4144,6 +4188,8 @@ GameObject:
   m_Component:
   - component: {fileID: 728298969}
   - component: {fileID: 728298970}
+  - component: {fileID: 728298972}
+  - component: {fileID: 728298971}
   m_Layer: 0
   m_Name: Save Manager
   m_TagString: Untagged
@@ -4176,6 +4222,31 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2e165fdca2d3bc40bc41b22dd2023de, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &728298971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728298968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95a9e111c6773b643ba444d561f78452, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentVersion: 1.03
+--- !u!114 &728298972
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728298968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b20373ab94d4e3441803734ea135e532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &757148288
@@ -4661,6 +4732,7 @@ MonoBehaviour:
     m_Signals:
     - {fileID: 11400000, guid: f2f2c1a71fe76ea46802bf11820fdd3a, type: 2}
     - {fileID: 11400000, guid: 18dac8d25f1972d488d52f7289d99d6e, type: 2}
+    - {fileID: 11400000, guid: 365e0e16638c83f4bb65b41c3de95f5f, type: 2}
     m_Events:
     - m_PersistentCalls:
         m_Calls:
@@ -4685,6 +4757,20 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 879510922}
+          m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_MethodName: 
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: 
             m_IntArgument: 0
             m_FloatArgument: 0
             m_StringArgument: 
@@ -5291,7 +5377,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clickIndicator: {fileID: 923936030}
   count: 0
-  text: CLICKS
+  text: Clicks
 --- !u!1 &927804932
 GameObject:
   m_ObjectHideFlags: 0
@@ -6425,8 +6511,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   recordIndicator: {fileID: 1151993320}
-  text: RECORD
-  deleteRecords: 282
+  medalScript: {fileID: 0}
+  text: Medalla
+  enText: Medal
 --- !u!1 &1162743548
 GameObject:
   m_ObjectHideFlags: 0
