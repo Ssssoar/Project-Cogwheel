@@ -15,12 +15,6 @@ public class SCR_SequenceReferenceHolder : MonoBehaviour{
     public PlayableDirector gameEndSequence;
     public Image newHiScoreGraphic;
 
-    public void CheckRecord(){
-        if (SCR_RecordTracker.instance.SetRecord(SCR_ClickCounter.instance.count)){ //if there is a new record set!
-            newHiScoreGraphic.color = Color.white;
-        }
-    }
-
     public void TriggerLoad(){
         Color color = Color.white;
         color.a = 0f;

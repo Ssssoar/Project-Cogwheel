@@ -9,6 +9,7 @@ public class SCR_SpawnLevelList : MonoBehaviour{
     public GameObject buttonPrefab;
     public GameObject firstLevel;
     public GameObject puff;
+    public GameObject medal;
     public Transform attractor;
     public float timeBetweenSpawns;
 
@@ -17,6 +18,8 @@ public class SCR_SpawnLevelList : MonoBehaviour{
     float timer = 0f;
     bool spawning = false;
     int count = 0;
+    public SCR_Medallion pendingMedal;
+    public string pendingMedalName;
 
     [ContextMenu("SpawnButtons")]
     public void SpawnList(){
@@ -38,7 +41,19 @@ public class SCR_SpawnLevelList : MonoBehaviour{
         spawnedButton.GetComponent<Image>().color = colorLister.background;
         SCR_LevelGenerator genScript = toSpawn.GetComponent<SCR_LevelGenerator>();
         spawnedButton.GetComponent<SCR_WorldPositioner>().positionOverride = attractor;
-        if (PlayerPrefs.GetInt(genScript.levelName , int.MaxValue) == int.MaxValue)
+        if(genScript.levelName == pendingMedalName){
+            pendingMedal.ChangeParentButton(spawnedButton);
+            pendingMedal.transform.SetParent(transform.parent);
+            pendingMedal = null;
+            pendingMedalName = "";
+            Destroy(textComp.gameObject);
+        }else{
+            if(PlayerPrefs.GetInt(genScript.levelName) == 1){
+                Instantiate(medal , spawnedButton.transform.position , Quaternion.identity, transform.parent).GetComponent<SCR_Medallion>().ChangeParentButton(spawnedButton);
+                Destroy(textComp.gameObject);
+            }
+        }
+        if (PlayerPrefs.GetInt(genScript.levelName + "passed", int.MaxValue) == int.MaxValue)
             return null;
         else
             return genScript.nextLevel;

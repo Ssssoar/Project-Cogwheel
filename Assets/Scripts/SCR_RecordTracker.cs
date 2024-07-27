@@ -19,7 +19,7 @@ public class SCR_RecordTracker : MonoBehaviour{
     public string enText;
 
     int currentStar;
-    string currentLevel;
+    public string currentLevel;
 
     public void NewLevel(string levelName , int starScore){
         string printableText = ((SCR_Language.instance != null) && (SCR_Language.instance.GetLang() == Lang.english)) ? enText : text;
@@ -28,9 +28,9 @@ public class SCR_RecordTracker : MonoBehaviour{
         currentLevel = levelName;
     }
 
-    public bool SetRecord(int attempt){ //returns whether a new medal was obtained
+    public bool CheckRecord(int attempt){ //returns whether a new medal was obtained
+        PlayerPrefs.SetInt(currentLevel + "passed",1);
         if (attempt <= currentStar){
-            medalScript.NewMedal(currentLevel);
             return true;
         }else{
             return false;

@@ -458,7 +458,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCheck: {fileID: 0}
   toSpawn: {fileID: 7172937742271684895, guid: 836f521858263514baf3176ed0ebe16e, type: 3}
-  silentSpawn: {fileID: 0}
   mins: {x: -635, y: -440}
   maxs: {x: -635, y: -440}
   numberToSpawn: 1
@@ -623,6 +622,8 @@ PlayableDirector:
     value: {fileID: 918504733}
   - key: {fileID: -7910385605286328274, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
     value: {fileID: 1096184567}
+  - key: {fileID: 7742338200446922626, guid: 1c68e92da15ffae4bbf96c91ccae2260, type: 2}
+    value: {fileID: 728298973}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &105268267 stripped
@@ -686,8 +687,11 @@ MonoBehaviour:
   buttonPrefab: {fileID: 844704514481360326, guid: e6b5eb741c3c1e64f8b4d1f3f35a99ec, type: 3}
   firstLevel: {fileID: 4690468120150831288, guid: cfab653a0cb5f514dac48f5c8b8c4b80, type: 3}
   puff: {fileID: 7172937742271684895, guid: 836f521858263514baf3176ed0ebe16e, type: 3}
+  medal: {fileID: 8760424071305526784, guid: 7883b96f1a9727543aa5d5c260f398c6, type: 3}
   attractor: {fileID: 2063249683}
   timeBetweenSpawns: 0.1
+  pendingMedal: {fileID: 0}
+  pendingMedalName: 
 --- !u!114 &110122413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1777,7 +1781,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCheck: {fileID: 0}
   toSpawn: {fileID: 7172937742271684895, guid: 836f521858263514baf3176ed0ebe16e, type: 3}
-  silentSpawn: {fileID: 0}
   mins: {x: -5, y: -381}
   maxs: {x: 5, y: -371}
   numberToSpawn: 3
@@ -2350,7 +2353,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCheck: {fileID: 376733792}
   toSpawn: {fileID: 7172937742271684895, guid: 836f521858263514baf3176ed0ebe16e, type: 3}
-  silentSpawn: {fileID: 7172937742271684895, guid: efd7d235bd5047c43809fc36cbac49a1, type: 3}
   mins: {x: -150.7333, y: -31.16667}
   maxs: {x: 150.7333, y: -18.83333}
   numberToSpawn: 20
@@ -3299,7 +3301,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   toCheck: {fileID: 0}
   toSpawn: {fileID: 7172937742271684895, guid: 836f521858263514baf3176ed0ebe16e, type: 3}
-  silentSpawn: {fileID: 0}
   mins: {x: -5, y: -119}
   maxs: {x: 5, y: -109}
   numberToSpawn: 3
@@ -4190,6 +4191,7 @@ GameObject:
   - component: {fileID: 728298970}
   - component: {fileID: 728298972}
   - component: {fileID: 728298971}
+  - component: {fileID: 728298973}
   m_Layer: 0
   m_Name: Save Manager
   m_TagString: Untagged
@@ -4236,7 +4238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95a9e111c6773b643ba444d561f78452, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentVersion: 1.03
+  currentVersion: 3
 --- !u!114 &728298972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4249,6 +4251,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b20373ab94d4e3441803734ea135e532, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  medal: {fileID: -6261045409463391797, guid: 7883b96f1a9727543aa5d5c260f398c6, type: 3}
+  levelSpawner: {fileID: 110122412}
+  victoryMenu: {fileID: 2140772375}
+--- !u!114 &728298973
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 728298968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e52de21a22b6dd44c9cc19f810c65059, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Events:
+    m_Signals:
+    - {fileID: 11400000, guid: 18dac8d25f1972d488d52f7289d99d6e, type: 2}
+    m_Events:
+    - m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 728298972}
+          m_TargetAssemblyTypeName: SCR_MedalTracker, Assembly-CSharp
+          m_MethodName: CheckRecord
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &757148288
 GameObject:
   m_ObjectHideFlags: 0
@@ -4749,19 +4784,7 @@ MonoBehaviour:
             m_BoolArgument: 0
           m_CallState: 2
     - m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 879510924}
-          m_TargetAssemblyTypeName: SCR_SequenceReferenceHolder, Assembly-CSharp
-          m_MethodName: CheckRecord
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
+        m_Calls: []
     - m_PersistentCalls:
         m_Calls:
         - m_Target: {fileID: 879510922}
@@ -6257,7 +6280,7 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 16777215
+    rgba: 4294967295
   m_fontColor: {r: 1, g: 1, b: 1, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
@@ -6514,6 +6537,7 @@ MonoBehaviour:
   medalScript: {fileID: 0}
   text: Medalla
   enText: Medal
+  currentLevel: 
 --- !u!1 &1162743548
 GameObject:
   m_ObjectHideFlags: 0
