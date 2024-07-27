@@ -97,6 +97,7 @@ GameObject:
   - component: {fileID: 6529070376096194739}
   - component: {fileID: 2111659802970093909}
   - component: {fileID: 2254487388736376823}
+  - component: {fileID: 9187016716704567522}
   m_Layer: 0
   m_Name: Root
   m_TagString: Untagged
@@ -190,3 +191,28 @@ MonoBehaviour:
   - {fileID: 1835297399, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: 2091399565, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
+--- !u!114 &9187016716704567522
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3558272475486258215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2581ffc75872c4dbfb71694a24785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomerComp: {fileID: 0}
+  spriteComp: {fileID: 2254487388736376823}
+  normalSprites:
+  - {fileID: -371749813, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1040771061, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1835297399, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 2091399565, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  hatSprites:
+  - {fileID: -948519953, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1637004528, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1466612102, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 257704398, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  chance: 1

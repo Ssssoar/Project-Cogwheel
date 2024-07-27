@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3155867096675567991}
   - component: {fileID: 7841669144033447989}
+  - component: {fileID: 6137431064983197837}
   m_Layer: 0
   m_Name: SpritesSide
   m_TagString: Untagged
@@ -51,6 +52,30 @@ MonoBehaviour:
   - {fileID: 1835297399, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: 2091399565, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
+--- !u!114 &6137431064983197837
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1126050621504763650}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2581ffc75872c4dbfb71694a24785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomerComp: {fileID: 0}
+  spriteComp: {fileID: 7841669144033447989}
+  normalSprites:
+  - {fileID: -371749813, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1040771061, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1835297399, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 2091399565, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  hatSprites:
+  - {fileID: -948519953, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1637004528, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1466612102, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 257704398, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
 --- !u!1 &2903839606919461858
 GameObject:
   m_ObjectHideFlags: 0
@@ -172,6 +197,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!114 &-8853643329461973292
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -186,7 +214,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   facingScript: {fileID: 3865892864918512511}
   positionScript: {fileID: 5782841199107293158}
-  test: 1
   bumpTime: 0.25
 --- !u!1 &3459992879367441708
 GameObject:
@@ -198,6 +225,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4560177387347091176}
   - component: {fileID: 6298476213931897810}
+  - component: {fileID: 3758414815164085085}
   m_Layer: 0
   m_Name: SpritesDown
   m_TagString: Untagged
@@ -239,6 +267,30 @@ MonoBehaviour:
   - {fileID: -931463273, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: 394854391, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
+--- !u!114 &3758414815164085085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3459992879367441708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2581ffc75872c4dbfb71694a24785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomerComp: {fileID: 0}
+  spriteComp: {fileID: 6298476213931897810}
+  normalSprites:
+  - {fileID: -1281400389, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1017047991, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -931463273, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 394854391, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  hatSprites:
+  - {fileID: -33319590, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1663226714, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 164371149, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 208967033, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
 --- !u!1 &6079121201555828747
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +301,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4631359912485574024}
   - component: {fileID: 6181701810311705617}
+  - component: {fileID: 1241695219926127005}
   m_Layer: 0
   m_Name: SpritesUp
   m_TagString: Untagged
@@ -290,3 +343,27 @@ MonoBehaviour:
   - {fileID: -1649280581, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   - {fileID: 1424498148, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
   wiggleType: 0
+--- !u!114 &1241695219926127005
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6079121201555828747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f2581ffc75872c4dbfb71694a24785e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomerComp: {fileID: 0}
+  spriteComp: {fileID: 6181701810311705617}
+  normalSprites:
+  - {fileID: -859539191, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -2007171551, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1649280581, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 1424498148, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  hatSprites:
+  - {fileID: 1165893699, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -2134183262, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: -1917984307, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}
+  - {fileID: 821381996, guid: 7ffcc9d6007566f4e9bf614143126990, type: 3}

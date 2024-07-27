@@ -12,17 +12,23 @@ public class SCR_SpawnLevelList : MonoBehaviour{
     public GameObject medal;
     public Transform attractor;
     public float timeBetweenSpawns;
+    public GameObject medalCounter;
+    public SCR_MedalCounter medalScript;
 
     GameObject currentlySpawning = null;
     GameObject spawnedButton = null;
     float timer = 0f;
     bool spawning = false;
     int count = 0;
+    [HideInInspector]
     public SCR_Medallion pendingMedal;
+    [HideInInspector]
     public string pendingMedalName;
 
     [ContextMenu("SpawnButtons")]
     public void SpawnList(){
+        medalScript.ResetCount();
+        medalCounter.SetActive(true);
         count = 0;
         spawning = true;
         currentlySpawning = SpawnButton(firstLevel);
@@ -47,10 +53,12 @@ public class SCR_SpawnLevelList : MonoBehaviour{
             pendingMedal = null;
             pendingMedalName = "";
             Destroy(textComp.gameObject);
+            medalScript.Count();
         }else{
             if(PlayerPrefs.GetInt(genScript.levelName) == 1){
                 Instantiate(medal , spawnedButton.transform.position , Quaternion.identity, transform.parent).GetComponent<SCR_Medallion>().ChangeParentButton(spawnedButton);
                 Destroy(textComp.gameObject);
+                medalScript.Count();
             }
         }
         if (PlayerPrefs.GetInt(genScript.levelName + "passed", int.MaxValue) == int.MaxValue)
@@ -82,7 +90,10 @@ public class SCR_SpawnLevelList : MonoBehaviour{
         for(int i = 0; i < transform.childCount ;  i++){
             Transform toDestroy = transform.GetChild(i);
             Instantiate(puff , toDestroy.position , Quaternion.identity, transform.parent);
-            Destroy(toDestroy.gameObject);
+            if (toDestroy.gameObject == medalCounter)
+                toDestroy.gameObject.SetActive(false);
+            else
+                Destroy(toDestroy.gameObject);
         }
     }
 }

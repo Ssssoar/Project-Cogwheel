@@ -8,3 +8,4 @@ public enum Chord {dominant,tonic}
 public enum Pitch {high,low}
 public enum Inversion {first,other} //referring to chord inversions
 public enum Lang {español,english}
+public enum Hat {none,huaso}
