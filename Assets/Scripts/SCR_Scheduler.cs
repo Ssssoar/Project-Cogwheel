@@ -108,6 +108,13 @@ public class SCR_Scheduler : MonoBehaviour{
         pendingArrows.Add(arrow);
     }
 
+    public void RemoveLastCommand(){
+        GameObject toDestroy = pendingArrows[pendingArrows.Count - 1];
+        waitingCommands.RemoveAt(waitingCommands.Count - 1);
+        pendingArrows.RemoveAt(pendingArrows.Count - 1);
+        Destroy(toDestroy);
+    }
+
     void ExecuteCommand(Command comm){
         SCR_PlayerMovement.instance.TryMovement(comm);
     }

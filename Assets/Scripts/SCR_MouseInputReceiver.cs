@@ -29,6 +29,8 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
     public List<Command> commandList2;
     public bool canMove;
 
+    int lengthLastSent;
+
     void Start(){
         UpdateCommands(null,null);
     }
@@ -51,14 +53,23 @@ public class SCR_MouseInputReceiver : MonoBehaviour{
         }
     }
 
+    public void NullLastCommand(){
+        clickCounter.UnCount();
+        for (int i = 0; i < lengthLastSent; i++){
+            SCR_Scheduler.instance.RemoveLastCommand();
+        }
+    }
+
     void SendCommands(List<Command> commandList, GameObject arrowContainer){
         clickCounter.Count();
+        lengthLastSent = 0;
         int i = 0;
         foreach (Command comm in commandList){
             GameObject toClone = arrowContainer.transform.GetChild(i).gameObject;
             GameObject clone = Instantiate(toClone,toClone.transform.position,Quaternion.identity,SCR_Scheduler.instance.transform);
             SCR_Scheduler.instance.ReceiveCommand(comm,clone);
             i++;
+            lengthLastSent++;
         }
     }
 

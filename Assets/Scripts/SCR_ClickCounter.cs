@@ -26,6 +26,11 @@ public class SCR_ClickCounter : MonoBehaviour{
         clickIndicator.text = text + System.Environment.NewLine + count;
     }
 
+    public void UnCount(){
+        count--;
+        clickIndicator.text = text + System.Environment.NewLine + count;
+    }
+
     public void ResetCount(){
         count = 0;
         clickIndicator.text = text + System.Environment.NewLine + count;
