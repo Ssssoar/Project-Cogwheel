@@ -55,6 +55,7 @@ MonoBehaviour:
   colorSetter: {fileID: 8521809770502318129}
   destroyTime: 0.5
   distance: 0.5
+  relative: 0
 --- !u!1 &1605347020304867243
 GameObject:
   m_ObjectHideFlags: 0

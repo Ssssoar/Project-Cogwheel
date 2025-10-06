@@ -100,6 +100,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   desiredWorldPos: {x: 0, y: 0}
   positionOverride: {fileID: 0}
+  desiredzRot: 0
+  actualzRot: 0
+  preventRotations: 0
 --- !u!114 &1864269648476550471
 MonoBehaviour:
   m_ObjectHideFlags: 0
