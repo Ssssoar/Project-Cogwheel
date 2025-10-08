@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class SCR_PauseMenu : MonoBehaviour{
     public GameObject endIfTheseActive;
     public GameObject pauseMenu;
+    public GameObject pauseButton;
     public KeyCode menuKey;
 
     bool paused = false;
@@ -23,6 +24,7 @@ public class SCR_PauseMenu : MonoBehaviour{
     public void TogglePauseState(){
         paused = !paused;
         pauseMenu.SetActive(paused);
+        pauseButton.SetActive(!paused);
         if(SCR_MouseInputReceiver.instance != null){
             SCR_MouseInputReceiver.instance.canMove = !paused;
         }
